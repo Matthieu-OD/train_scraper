@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
@@ -26,6 +26,7 @@ jobs:
         uses: wearerequired/lint-action@v1
         with:
           black: true
+          black_args: "--check --diff"
           flake8: true
 
       - name: Creating the requirements file
