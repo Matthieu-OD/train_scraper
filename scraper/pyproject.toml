@@ -6,8 +6,8 @@ authors = ["Matthieu Olenga <matt.olenga@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-isort = "^5.10.1"
-pylint = "^2.12.2"
+flake8 = "^4.0.1"
+black = "^21.12b0"
 
 [tool.poetry.dev-dependencies]
 
