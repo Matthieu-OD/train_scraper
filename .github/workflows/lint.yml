@@ -14,13 +14,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
+          python-version: 3.9
 
       - name: Install Python dependencies
-        run: pip install black flake8
+        run: pip install black flake8 isort
 
       - name: Run linters
         uses: wearerequired/lint-action@v1
@@ -29,12 +26,7 @@ jobs:
           black_args: "--check --diff"
           flake8: true
 
-      - name: Creating the requirements file
-        run: |
-          cd scraper
-          poetry export -f requirements.txt --output requirements.txt
-
       - name: Run isort on python files
         uses: isort/isort-action@master
         with:
-          requirementsFiles: "requirements.txt"
+          requirementsFiles: "scraper/pyproject.toml"
