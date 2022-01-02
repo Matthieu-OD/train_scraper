@@ -29,7 +29,9 @@ jobs:
           flake8: true
 
       - name: Creating the requirements file
-        run: poetry export -f requirements.txt --output requirements.txt
+        run: |
+          cd scraper
+          poetry export -f requirements.txt --output requirements.txt
 
       - name: Run isort on python files
         uses: isort/isort-action@master
