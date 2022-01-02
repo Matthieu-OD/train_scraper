@@ -16,6 +16,9 @@ jobs:
         with:
           python-version: 3.8
 
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
       - name: Install Python dependencies
         run: pip install black flake8
 
@@ -24,3 +27,11 @@ jobs:
         with:
           black: true
           flake8: true
+
+      - name: Creating the requirements file
+        run: poetry export -f requirements.txt --output requirements.txt
+
+      - name: Run isort on python files
+        uses: isort/isort-action@master
+        with:
+          requirementsFiles: "requirements.txt"
